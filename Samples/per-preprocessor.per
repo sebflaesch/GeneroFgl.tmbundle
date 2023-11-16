@@ -1,0 +1,73 @@
+-- This file shows how preprocessor directives are highlighted
+-- This file is not a real example
+DATABASE FORMONLY
+SCREEN
+&define AAA "aas"{}#666##22
+&define BBB ddfdf {
+	comment 
+	} aa#fff	
+#sdsd	
+{
+ Field1: [field1     ]
+ Field2: [field2     ]
+}
+
+ATTRIBUTES
+field1 = FORMONLY.field1;
+field2 = FORMONLY.field2;
+
+-- preprocessor
+
+&define MACRO1 INCLUDE = (1, 2), COMMENTS = "xxxx"
+-- defition spanning multiple lines
+&define MACRO2 \
+    INCLUDE = (1, 2), \
+    COMMENTS = "xxxx"
+
+-- notice: line comments starting with the number sign (#) are illegal
+-- in the context of macro definition.
+-- ## concatenates two tokens into one token
+&define MACRO3(a, b) COMMENTS = a##b
+-- # converts a token into a string literal 
+&define MACRO4(a) DELIMITERS #a
+
+-- block comment in macro
+&define MACRO5 \
+    { comment 
+    comment
+    } \
+    DELIMITERS "[]";
+&define MACRO6(a, b) a{}b
+
+-- line comment after macro definition
+&define MACRO7(a) DELIMITERS a; --comment
+
+INSTRUCTIONS
+MACRO4([])
+MACRO5
+MACRO6(DELIMITERS, "[]")
+MACRO7("[xy]")
+
+&ifdef AAA
+&elif BBB
+&else
+&endif
+&undef AAA
+
+&ifdef AAA {comment}
+&elif BBB {comment}
+&else {comment}
+&endif {comment}
+&undef AAA {comment}
+
+&ifdef AAA -- comment
+&elif BBB -- comment
+&else -- comment
+&endif -- comment
+&undef AAA -- comment
+
+&ifdef AAA # comment
+&elif BBB # comment
+&else # comment
+&endif # comment
+&undef AAA # comment

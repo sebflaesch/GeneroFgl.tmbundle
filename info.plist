@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>contactEmailRot13</key>
+	<string></string>
+	<key>contactName</key>
+	<string>rs</string>
+	<key>description</key>
+	<string>Syntax highlighting for Genero 4gl and per (form files) - v2</string>
+	<key>name</key>
+	<string>GeneroFgl</string>
+	<key>uuid</key>
+	<string>406D6710-646E-463F-BB18-3481117EE873</string>
+</dict>
+</plist>
